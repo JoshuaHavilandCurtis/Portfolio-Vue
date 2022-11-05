@@ -1,6 +1,7 @@
 # My Portfolio
 
 Just practicing to build my first Vue project, aside from my Udemy course. 
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
