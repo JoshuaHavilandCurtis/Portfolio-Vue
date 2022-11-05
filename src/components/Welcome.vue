@@ -2,7 +2,8 @@
 export default {
   data() {
     return {
-      count: 0
+        name: 'Joshua Curtis',
+        motto: 'Software Developer / Life Long Student / Human'
     }
   }
 }
@@ -12,8 +13,8 @@ export default {
   <div class="container vh-100">
       <div class="row justify-content-center align-items-center h-100">
           <div class="col-12 text-center">
-            <h1>Joshua Curtis</h1>
-            <p>Software Developer / Life Long Student / Human</p>
+            <h1>{{ this.name }}</h1>
+            <p>{{ this.motto }}</p>
           </div>
       </div>
   </div>

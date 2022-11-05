@@ -1,20 +1,41 @@
 <script>
 import Welcome from './components/Welcome.vue'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import About from './components/About.vue'
+import Work from './components/Work.vue'
 
 export default {
+  data() {
+    return {
+      componentSwitcher: ""
+    }
+  },
   components: {
-    Welcome
-  }
+    Welcome,
+    About,
+    Work
+  },
+  methods: {
+    // component switcher function
+    open: function(cmp){
+        this.componentSwitcher = cmp;
+    }
+  },
 }
 </script>
 
 <template>
   <welcome></welcome>
-  <a id="about" href="">about</a>
-  <a id="work" href="">work</a>
+
+  <nav>
+    <span @click="open('about')">About</span>
+    <span @click="open('work')">Work</span>
+  </nav>
+
+  <transition name="fade" mode="out-in" v-if="componentSwitcher === 'about'">
+    <about></about>
+  </transition>
+
+  <transition name="fade" mode="out-in" v-if="componentSwitcher == 'work'">
+    <work></work>
+  </transition>
 </template>
-
-<style scoped>
-
-</style>
