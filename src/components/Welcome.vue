@@ -15,6 +15,7 @@ export default {
           <div class="col-12 text-center">
             <h1>{{ this.name }}</h1>
             <p>{{ this.motto }}</p>
+            <slot></slot>
           </div>
       </div>
   </div>

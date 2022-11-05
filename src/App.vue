@@ -6,7 +6,7 @@ import Work from './components/Work.vue'
 export default {
   data() {
     return {
-      componentSwitcher: ""
+      componentSwitcher: "welcome"
     }
   },
   components: {
@@ -24,12 +24,14 @@ export default {
 </script>
 
 <template>
-  <welcome></welcome>
-
-  <nav>
-    <span @click="open('about')">About</span>
-    <span @click="open('work')">Work</span>
-  </nav>
+  <transition name="fade" mode="out-in" v-if="componentSwitcher === 'welcome'">
+    <welcome>
+        <nav>
+          <span @click="open('about')">About</span>
+          <span @click="open('work')">Work</span>
+        </nav>
+    </welcome>
+  </transition>
 
   <transition name="fade" mode="out-in" v-if="componentSwitcher === 'about'">
     <about></about>
