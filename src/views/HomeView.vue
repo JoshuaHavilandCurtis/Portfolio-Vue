@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <header class="home-bg">
-    <div class="wrapper">
+    <div class="home">
       <nav>
         <!-- <RouterLink to="/">Home</RouterLink> -->
         <RouterLink to="/about" id="about">About</RouterLink>

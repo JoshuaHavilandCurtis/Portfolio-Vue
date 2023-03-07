@@ -1,9 +1,15 @@
-<script setup>
-
+<script>
+export default {
+  data() {
+    return {};
+  },
+  methods: {},
+};
 </script>
 
+
 <template>
-  <main>
+  <div class="work page">
     <h1>Hello</h1>
-  </main>
+  </div>
 </template>

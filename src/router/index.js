@@ -13,19 +13,28 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-      meta: { transition: 'slide-left' }
+      meta: { 
+        enterClass: 'animate__animated animate__fadeInLeft',
+        leaveClass: 'animate__animated animate__fadeOutRight',
+      }
     },
     {
       path: '/about',
       name: 'about',
       component: AboutView,
-      meta: { transition: 'slide-left' }
+      meta: { 
+        enterClass: 'animate__animated animate__fadeInLeft',
+        leaveClass: 'animate__animated animate__fadeOutRight',
+      }
     },
     {
       path: '/work',
       name: 'work',
       component: WorkView,
-      meta: { transition: 'slide-left' }
+      meta: {
+        enterClass: 'animate__animated animate__fadeInRight',
+        leaveClass: 'animate__animated animate__fadeOutLeft', 
+      }
     }
   ]
 })

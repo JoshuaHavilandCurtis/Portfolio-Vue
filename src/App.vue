@@ -1,12 +1,24 @@
-<script setup>
+<script>
 import { RouterView } from 'vue-router'
+
+export default {
+  name: 'App',
+  data () {
+    return {}
+  },
+  watch: {}
+}
 </script>
 
 <template>
-    <router-view v-slot="{ Component }">
+  <router-view v-slot="{ Component, route }">
     <!-- Use any custom transition and  to `fade` -->
-    <transition name="page-slide" mode="out-in">
-      <component :is="Component" />
+    <transition 
+      :enter-active-class="route.meta.enterClass" 
+      :leave-active-class="route.meta.leaveClass" 
+    >
+
+      <component :is="Component" :key="route.path" />
     </transition>
   </router-view>
 </template>

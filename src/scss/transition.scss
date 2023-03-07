@@ -1,16 +1,40 @@
+.page {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+
 @keyframes FadeIn {
-	from { filter:opacity(0); }
-	to { filter:opacity(1); }
+	from {
+		filter: opacity(0);
+	}
+
+	to {
+		filter: opacity(1);
+	}
 }
 
 @keyframes FadeOut {
-	from { filter:opacity(1); }
-	to { filter:opacity(0); }
+	from {
+		filter: opacity(1);
+	}
+
+	to {
+		filter: opacity(0);
+	}
 }
 
 @keyframes ScaleIn {
-	from { transform:scale(0.95); }
-	to { transform:scale(1); }
+	from {
+		transform: scale(0.95);
+	}
+
+	to {
+		transform: scale(1);
+	}
 }
 
 
@@ -22,7 +46,7 @@
 	&-enter-active {
 		animation: FadeIn $anim;
 	}
-	
+
 	&-leave-active {
 		animation: FadeOut $anim;
 	}
@@ -34,7 +58,7 @@
 	&-enter-active {
 		animation: FadeIn $anim;
 	}
-	
+
 	&-leave-active {
 		animation: FadeOut $anim;
 	}
@@ -50,22 +74,22 @@
 
 .page-opacity-enter-active,
 .page-opacity-leave-active {
-    transition: 500ms ease all;
+	transition: 500ms ease all;
 }
 
 .page-opacity-enter-from,
 .page-opacity-leave-to {
-    opacity: 0;
+	opacity: 0;
 }
 
 
 .page-slide-enter-active,
 .page-slide-leave-active {
-    transform: translateX(0);
-    transition: all .3s linear;
+	transform: translateY(0);
+	transition: all .3s linear;
 }
 
 .page-slide-enter-from,
 .page-slide-leave-to {
-    transform: translateX(100%);
+	transform: translateY(100%);
 }
