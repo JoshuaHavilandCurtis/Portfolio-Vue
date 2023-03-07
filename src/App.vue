@@ -1,43 +1,16 @@
-<script>
-import Welcome from './components/Welcome.vue'
-import About from './components/About.vue'
-import Work from './components/Work.vue'
-
-export default {
-  data() {
-    return {
-      componentSwitcher: "welcome"
-    }
-  },
-  components: {
-    Welcome,
-    About,
-    Work
-  },
-  methods: {
-    // component switcher function
-    open: function(cmp){
-        this.componentSwitcher = cmp;
-    }
-  },
-}
+<script setup>
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <transition name="fade" mode="out-in" v-if="componentSwitcher === 'welcome'">
-    <welcome>
-        <nav>
-          <span @click="open('about')">About</span>
-          <span @click="open('work')">Work</span>
-        </nav>
-    </welcome>
-  </transition>
-
-  <transition name="fade" mode="out-in" v-if="componentSwitcher === 'about'">
-    <about></about>
-  </transition>
-
-  <transition name="fade" mode="out-in" v-if="componentSwitcher == 'work'">
-    <work></work>
-  </transition>
+    <router-view v-slot="{ Component }">
+    <!-- Use any custom transition and  to `fade` -->
+    <transition name="page-slide" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
+
+<style lang="scss">
+@import "@/scss/main";
+</style>

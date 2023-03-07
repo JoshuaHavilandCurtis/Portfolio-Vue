@@ -1,0 +1,71 @@
+@keyframes FadeIn {
+	from { filter:opacity(0); }
+	to { filter:opacity(1); }
+}
+
+@keyframes FadeOut {
+	from { filter:opacity(1); }
+	to { filter:opacity(0); }
+}
+
+@keyframes ScaleIn {
+	from { transform:scale(0.95); }
+	to { transform:scale(1); }
+}
+
+
+// vue transitions
+
+.route-loader {
+	$anim: 300ms ease-in-out;
+
+	&-enter-active {
+		animation: FadeIn $anim;
+	}
+	
+	&-leave-active {
+		animation: FadeOut $anim;
+	}
+}
+
+.element-loader {
+	$anim: 75ms ease-in-out;
+
+	&-enter-active {
+		animation: FadeIn $anim;
+	}
+	
+	&-leave-active {
+		animation: FadeOut $anim;
+	}
+}
+
+
+//regular css animations
+
+.header-animation {
+	$anim: 750ms ease-in-out;
+	animation: FadeIn $anim;
+}
+
+.page-opacity-enter-active,
+.page-opacity-leave-active {
+    transition: 500ms ease all;
+}
+
+.page-opacity-enter-from,
+.page-opacity-leave-to {
+    opacity: 0;
+}
+
+
+.page-slide-enter-active,
+.page-slide-leave-active {
+    transition: 500ms ease all;
+}
+
+.page-slide-enter-from,
+.page-slide-leave-to {
+    opacity: 0;
+    transform: translateY(60px);
+}
