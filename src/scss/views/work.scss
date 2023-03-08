@@ -10,5 +10,25 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        * {
+            color: white;
+        }
+    }
+
+    &__tags {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        flex-wrap: wrap;
+        padding: 0;
+        gap: 10px;
+
+        li {
+            border: solid 2px white;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
     }
 }
