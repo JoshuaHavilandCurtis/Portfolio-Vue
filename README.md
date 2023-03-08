@@ -1,6 +1,6 @@
 # Vue Portfolio Rebuild
 
-Vue 3 in Vite.
+Vue 3 in Vite, Bootstrap 5.2, Pinia, JavaScript and Vue 3 Options API
 
 ## Recommended IDE Setup
 
