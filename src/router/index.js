@@ -6,23 +6,23 @@ import AboutView from '../views/AboutView.vue';
 import WorkView from '../views/WorkView.vue';
 
 
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: 'home',
       component: HomeView,
-      meta: { 
-        enterClass: 'animate__animated animate__fadeInLeft',
-        leaveClass: 'animate__animated animate__fadeOutRight',
+      meta: {
+        enterClass: 'animate__animated',
+        leaveClass: 'animate__animated',
       }
     },
     {
       path: '/about',
       name: 'about',
       component: AboutView,
-      meta: { 
+      meta: {
         enterClass: 'animate__animated animate__fadeInLeft',
         leaveClass: 'animate__animated animate__fadeOutRight',
       }
@@ -33,10 +33,8 @@ const router = createRouter({
       component: WorkView,
       meta: {
         enterClass: 'animate__animated animate__fadeInRight',
-        leaveClass: 'animate__animated animate__fadeOutLeft', 
+        leaveClass: 'animate__animated animate__fadeOutLeft',
       }
     }
   ]
-})
-
-export default router
+});

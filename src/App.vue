@@ -1,13 +1,11 @@
 <script>
-import { RouterView } from 'vue-router'
-
 export default {
-  name: 'App',
-  data () {
-    return {}
-  },
-  watch: {}
+  name: 'App'
 }
+</script>
+
+<script setup>
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
@@ -18,7 +16,7 @@ export default {
       :leave-active-class="route.meta.leaveClass" 
     >
 
-      <component :is="Component" :key="route.path" />
+      <component class="slide-to" :is="Component" :key="route.path" />
     </transition>
   </router-view>
 </template>
