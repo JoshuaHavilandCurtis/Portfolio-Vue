@@ -1,0 +1,14 @@
+.work {
+    &__image {
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

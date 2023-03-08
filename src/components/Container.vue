@@ -1,11 +1,7 @@
 <template>
     <section>
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <slot></slot>
-                </div>
-            </div>
+            <slot></slot>
         </div>
     </section>
 </template>
