@@ -1,6 +1,6 @@
 # Vue 3, Headless CMS Portfolio Rebuild
 
-Vue 3 in Vite, Bootstrap 5.2, Pinia, JavaScript, Vue 3 Options API and Headless CMS (strapi)
+Vue 3 in Vite, Bootstrap 5.2, Pinia, Axios, JavaScript, Vue 3 Options API and Headless CMS (strapi)
 
 - https://joshuacurtis.co.uk
 - https://cms.joshuacurtis.co.uk
