@@ -15,14 +15,16 @@ export default {
   },
   methods: {
     async getWorkData() {
-      const data = await fetchFromStrapi("work")/*.catch(error => {
+      const response = await fetchFromStrapi("work");
+      
+      /*.catch(error => {
         this.$store.setState("error", "Failed!");
       });*/
 
-      console.log(data)
+      console.log(response)
 
-      this.productsTitle = data.data.attributes.title;
-      this.products = data.data.attributes.products; 
+      this.productsTitle = response.data.attributes.title;
+      this.products = response.data.attributes.products; 
 
       this.loading = false;
     }
@@ -30,7 +32,7 @@ export default {
   mounted() {
     this.getWorkData();
   }
-};
+}
 </script>
 
 
@@ -43,7 +45,7 @@ export default {
 
       <div v-else class="page-content">
         <container>
-          <div class="row">
+          <div class="row py-5">
             <div class="col-12">
               <h1>{{ productsTitle }}</h1>
             </div>
@@ -64,6 +66,35 @@ export default {
               </div>
             </div>
           </div>
+
+          <div class="row mt-5">
+            <div class="col-12">
+              <ul>
+                <li>
+                  <span>HTML5</span>
+                </li>
+
+                <li>
+                  <span>SCSS</span>
+                </li>
+
+                <li>
+                  <span>JavaScript</span>
+                </li>
+
+                <li>
+                  <span>WordPress & ACF</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <a href="https://dianebutterworth.com/" target="_blank" class="btn_one preview">Preview</a>
+            </div>
+          </div>
+
           
         </container>
       </div>
