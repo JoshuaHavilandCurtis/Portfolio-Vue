@@ -1,4 +1,13 @@
 .work {
+
+    &__content {
+        background-color: rgb(251, 23, 117);
+    }
+
+    &__title {
+        color: white;
+    }
+
     &__image {
         img {
             width: 100%;
@@ -29,6 +38,12 @@
             color: white;
             padding: 10px 20px;
             border-radius: 50px;
+        }
+    }
+
+    &__product {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
         }
     }
 }

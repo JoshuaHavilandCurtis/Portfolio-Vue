@@ -1,3 +1,36 @@
+<script>
+import { fetchFromStrapi } from "@/lib/strapi";
+import Loader from "@/components/Loader.vue";
+
+export default {
+  components: {
+    Loader,
+  },
+  data() {
+    return {
+      loading: true,
+      products: [],
+      productsTitle: ''
+    }
+  },
+  methods: {
+    // async getWorkData() {
+    //   const response = await fetchFromStrapi("work");
+  
+    //   console.log(response)
+
+    //   this.productsTitle = response.data.attributes.title;
+    //   this.products = response.data.attributes.products; 
+
+    //   this.loading = false;
+    // }
+  },
+  mounted() {
+    // this.getWorkData();
+  }
+}
+</script>
+
 <template>
   <div class="about page">
     <container>

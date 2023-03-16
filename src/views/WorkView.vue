@@ -10,17 +10,13 @@ export default {
     return {
       loading: true,
       products: [],
-      productsTitle: ''
+      productsTitle: '',
     }
   },
   methods: {
     async getWorkData() {
       const response = await fetchFromStrapi("work");
-      
-      /*.catch(error => {
-        this.$store.setState("error", "Failed!");
-      });*/
-
+  
       console.log(response)
 
       this.productsTitle = response.data.attributes.title;
@@ -43,15 +39,15 @@ export default {
     <Transition appear name="page-loader">
       <Loader v-if="loading"></Loader>
 
-      <div v-else class="page-content">
+      <div v-else class="work__content page-content">
         <container>
           <div class="row py-5">
             <div class="col-12">
-              <h1>{{ productsTitle }}</h1>
+              <h1 class="work__title">{{ productsTitle }}</h1>
             </div>
           </div>
 
-          <div class="row gx-5 align-items-center" v-for="product in products" :key="product.id">
+          <div class="row gx-5 align-items-center work__product" v-for="product in products" :key="product.id">
             <div class="col-5">
               <div class="work__image">
                 <img :src="product.image.data.attributes.url">
@@ -65,36 +61,24 @@ export default {
                 <p>{{ product.description }}</p>
               </div>
             </div>
-          </div>
 
-          <div class="row mt-5">
-            <div class="col-12">
-              <ul>
-                <li>
-                  <span>HTML5</span>
-                </li>
-
-                <li>
-                  <span>SCSS</span>
-                </li>
-
-                <li>
-                  <span>JavaScript</span>
-                </li>
-
-                <li>
-                  <span>WordPress & ACF</span>
-                </li>
-              </ul>
+            <div class="row mt-5">
+              <div class="col-12">
+                <ul class="work__tags">
+                  <li v-for="tag in product.tags.data" :key="tag.id">
+                    <span>{{ tag.attributes.name }}</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-12">
-              <a href="https://dianebutterworth.com/" target="_blank" class="btn_one preview">Preview</a>
+            <div class="row">
+              <div class="col-12">
+                <a :href="product.link" target="_blank" class="button preview">Preview</a>
+              </div>
             </div>
-          </div>
 
+          </div>
           
         </container>
       </div>
