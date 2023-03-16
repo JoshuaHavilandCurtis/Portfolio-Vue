@@ -1,6 +1,6 @@
-# Vue Portfolio Rebuild
+# Vue 3, Headless CMS Portfolio Rebuild
 
-Vue 3 in Vite, Bootstrap 5.2, Pinia, JavaScript and Vue 3 Options API
+Vue 3 in Vite, Bootstrap 5.2, Pinia, JavaScript, Vue 3 Options API and Headless CMS (strapi)
 
 ## Recommended IDE Setup
 
