@@ -2,6 +2,9 @@
 
 Vue 3 in Vite, Bootstrap 5.2, Pinia, JavaScript, Vue 3 Options API and Headless CMS (strapi)
 
+- https://joshuacurtis.co.uk
+- https://cms.joshuacurtis.co.uk
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
