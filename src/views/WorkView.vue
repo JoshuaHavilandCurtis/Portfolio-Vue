@@ -9,8 +9,8 @@ export default {
   data() {
     return {
       loading: true,
-      products: [],
-      productsTitle: '',
+      products: null,
+      title: null
     }
   },
   methods: {
@@ -37,13 +37,13 @@ export default {
   <div class="work page">
 
     <Transition appear name="page-loader">
-      <Loader v-if="loading"></Loader>
+      <Loader v-if="loading" />
 
-      <div v-else class="work__content page-content">
+      <div v-else class="page-content">
         <container>
           <div class="row py-5">
             <div class="col-12">
-              <h1 class="work__title">{{ productsTitle }}</h1>
+              <h1 class="work__title">{{ title }}</h1>
             </div>
           </div>
 

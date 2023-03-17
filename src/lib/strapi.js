@@ -1,7 +1,9 @@
 import { delay } from "@/lib/common";
 import axios from 'axios';
 
-const domain = "https://cms.joshuacurtis.co.uk"; //"http://127.0.0.1:1337";
+
+//;
+const domain = "http://localhost:1337"//"https://cms.joshuacurtis.co.uk";
 
 export const fetchFromStrapi = async (query) => {
 	try {

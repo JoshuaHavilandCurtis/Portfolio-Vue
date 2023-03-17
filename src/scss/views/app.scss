@@ -1,4 +1,5 @@
 nav {
+
     #work {
         width: 10vw;
         height: 10vw;
@@ -46,9 +47,9 @@ nav {
 }
 
 #particles-js {
-    position:fixed;
-    width:100vw;
-    height:100vh;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
 }
 
 .home-bg {
@@ -60,7 +61,9 @@ nav {
 }
 
 .intro {
-    h1, p {
+
+    h1,
+    p {
         color: white;
     }
 }
