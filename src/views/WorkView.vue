@@ -48,13 +48,13 @@ export default {
           </div>
 
           <div class="row gx-5 align-items-center work__product" v-for="product in products" :key="product.id">
-            <div class="col-5">
+            <div class="col-12 col-lg-5 mb-5 mb-lg-0">
               <div class="work__image">
                 <img :src="product.image.data.attributes.url">
               </div>
             </div>
     
-            <div class="col-7">
+            <div class="col-12 col-lg-7">
               <div class="work__text">
                 <h2>{{ product.title }}</h2>
                 <h3>{{ product.subtitle }}</h3>
@@ -72,7 +72,7 @@ export default {
               </div>
             </div>
 
-            <div class="row">
+            <div class="row py-5">
               <div class="col-12">
                 <a :href="product.link" target="_blank" class="button preview">Preview</a>
               </div>

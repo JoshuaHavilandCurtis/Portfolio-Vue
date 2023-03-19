@@ -36,19 +36,36 @@ export default {
 <template>
   <div class="about page">
     <Transition appear name="page-loader">
-      
+
       <Loader v-if="loading" />
 
       <div v-else class="page-content">
         <container>
-          <div class="col-12">
-            <h1>{{ title }}</h1>
-            <p>{{ description }}</p>
-            <img :src="image">
+
+          <div class="row py-5">
+            <div class="col-12">
+              <div class="about__title">
+                <h1>{{ title }}</h1>
+              </div>
+            </div>
           </div>
+
+          <div class="row gx-5 align-items-center">
+            <div class="col-5">
+              <div class="about__image">
+                <img :src="image">
+              </div>
+            </div>
+
+            <div class="col-7">
+              <div class="about__description">
+                <p>{{ description }}</p>
+              </div>
+            </div>
+          </div>
+
         </container>
       </div>
-
     </Transition>
   </div>
 </template>

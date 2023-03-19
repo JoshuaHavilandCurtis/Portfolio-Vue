@@ -5,9 +5,17 @@
     }
 
     &__image {
+        overflow: hidden;
+        border-radius: 10px;
+
         img {
             width: 100%;
             border-radius: 10px;
+            transition: 0.5s;
+
+            &:hover {
+                transform: scale(1.5);
+            }
         }
     }
 
