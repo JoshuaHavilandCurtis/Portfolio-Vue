@@ -35,7 +35,20 @@ router.afterEach((to, from) => {
       <container class="text-center intro">
         <h1>Joshua Curtis.</h1>
         <p>Software Developer / Life Long Student / Human</p>
+
+        <div class="row">
+          <div class="col-12">
+            <a href="/" target="_blank" class="button preview">Resume</a>
+          </div>
+        </div>
+
+        <a href="/" target="_blank" class=""><font-awesome-icon icon="fa-brands fa-linkedin-in" /></a>
+        <a href="/" target="_blank" class="">GitHub</a>
       </container>
     </div>
   </header>
 </template>
+
+<style lang="scss" scoped>
+@import "@/scss/views/home";
+</style>

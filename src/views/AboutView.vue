@@ -70,3 +70,6 @@ export default {
   </div>
 </template>
 
+<style lang="scss" scoped>
+@import "@/scss/views/about";
+</style>

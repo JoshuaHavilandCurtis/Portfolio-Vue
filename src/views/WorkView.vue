@@ -41,6 +41,10 @@ export default {
 
       <div v-else class="page-content">
         <container>
+          <nav>
+            <RouterLink to="/" id="work"><font-awesome-icon icon="fa-solid fa-arrow-left" /> Back</RouterLink>
+          </nav>
+
           <div class="row py-5">
             <div class="col-12">
               <h1 class="work__title">{{ title }}</h1>
@@ -85,3 +89,7 @@ export default {
     </Transition>
   </div>
 </template>
+
+<style lang="scss" scoped>
+@import "@/scss/views/work";
+</style>
