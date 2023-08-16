@@ -1,0 +1,98 @@
+/* Content loader */
+.content-loaded {
+	&-leave-active {
+		animation: FadeOut var(--anim);
+	}
+}
+
+/* Slide */
+.slide {
+	//in from
+	&-in-from {
+		//left
+		&-left {
+			&-enter-active,
+			&-leave-active {
+				transition: transform var(--anim);
+			}
+
+			&-enter-from,
+			&-leave-to {
+				transform: translateX(-100%);
+			}
+
+			&-enter-to,
+			&-leave-from {
+				transform: translateX(0);
+			}
+		}
+
+		//right
+		&-right {
+			&-enter-active,
+			&-leave-active {
+				transition: transform var(--anim);
+			}
+
+			&-enter-from,
+			&-leave-to {
+				transform: translateX(100%);
+			}
+
+			&-enter-to,
+			&-leave-from {
+				transform: translateX(0);
+			}
+		}
+	}
+}
+
+/* Fade */
+.fade {
+	//in and out
+	&-enter-active {
+		animation: FadeIn var(--anim);
+	}
+	&-leave-active {
+		animation: FadeOut var(--anim);
+	}
+
+	//in only
+	&-in {
+		&-enter-active {
+			animation: FadeIn var(--anim);
+		}
+	}
+
+	//out only
+	&-out {
+		&-leave-active {
+			animation: FadeOut var(--anim);
+		}
+	}
+
+	//slow
+	&-slow {
+		//in and out
+		&-enter-active {
+			animation: FadeIn var(--anim-slow);
+		}
+		&-leave-active {
+			animation: FadeOut var(--anim-slow);
+		}
+
+		//in only
+		&-in {
+			&-enter-active {
+				animation: FadeIn var(--anim-slow);
+			}
+		}
+
+		//out only
+		&-out {
+			&-leave-active {
+				animation: FadeOut var(--anim-slow);
+			}
+		}
+	}
+}

@@ -1,0 +1,60 @@
+body {
+	position: relative;
+	overflow-x: hidden;
+	font-family: Inter;
+	word-break: break-word;
+
+	min-height: 100vh;
+	min-height: 100dvh;
+
+	@include media-breakpoint-up(lg) {
+		height: 100vh;
+		height: 100dvh;
+	}
+
+	::selection {
+		background-color: var(--bg-secondary);
+	}
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+/* Track */
+// ::-webkit-scrollbar-track {
+// 	background: var(--bg-primary-light);
+// }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--bg-primary-very-dark);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--bg-primary-very-very-dark);
+}
+
+h1 {
+	margin-bottom: 1.5rem;
+}
+
+h1,
+h2 {
+	font-weight: 700;
+}
+
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 500;
+}
+
+a {
+	&:hover {
+		color: var(--bg-secondary);
+	}
+}

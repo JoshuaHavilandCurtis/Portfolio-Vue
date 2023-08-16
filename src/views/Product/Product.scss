@@ -1,0 +1,18 @@
+.product {
+	&__main-content {
+		margin: auto 0;
+		padding-top: 2rem;
+	}
+
+	&__tags {
+		list-style: none;
+		padding: unset;
+
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	// &__link {
+	// }
+}

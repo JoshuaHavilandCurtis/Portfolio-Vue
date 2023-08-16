@@ -1,0 +1,132 @@
+@import "@/scss/mixins";
+
+.swiper {
+	--swiper-bullet-top-margin: 1.25rem;
+
+	z-index: unset;
+	position: unset;
+
+	&-wrapper {
+		z-index: unset;
+		position: unset;
+	}
+
+	&-button {
+		&-next,
+		&-prev {
+			--swiper-button-height: 3rem;
+			--swiper-button-wall-offset: 1rem;
+
+			display: none;
+			position: absolute;
+			top: 50%;
+			z-index: 3;
+			border-radius: var(--radius-md);
+			margin-top: calc(var(--swiper-button-height) * -0.5 - var(--swiper-bullet-top-margin));
+			height: 3.75rem;
+			width: 3rem;
+			text-align: center;
+			backdrop-filter: blur(10px) brightness(0.5) contrast(0.5);
+
+			transition: filter var(--anim-very-fast), backdrop-filter var(--anim-very-fast);
+
+			@include media-breakpoint-up(sm) {
+				display: unset;
+			}
+
+			$bd-filter: blur(10px) brightness(2) contrast(0.5);
+
+			&:active {
+				backdrop-filter: $bd-filter;
+
+				&:after {
+					color: var(--bg-primary-very-very-dark);
+				}
+			}
+
+			@include media-breakpoint-up(md) {
+				&:hover {
+					backdrop-filter: $bd-filter;
+
+					&:after {
+						color: var(--bg-primary-very-very-dark);
+					}
+				}
+			}
+
+			&.swiper-button-disabled {
+				filter: opacity(0);
+				backdrop-filter: unset;
+				cursor: unset;
+				pointer-events: none;
+			}
+
+			&:after {
+				color: var(--color-primary);
+				line-height: 0.725;
+				font-size: 4.5rem;
+				padding-bottom: 0.5rem; //scuffed
+
+				transition: color var(--anim-very-fast), filter var(--anim-very-fast);
+			}
+		}
+
+		&-next {
+			right: var(--swiper-button-wall-offset);
+
+			&:after {
+				content: "\203A";
+			}
+		}
+
+		&-prev {
+			left: var(--swiper-button-wall-offset);
+
+			&:after {
+				content: "\2039";
+			}
+		}
+	}
+
+	&-pagination {
+		&-bullets {
+			display: flex;
+			width: 100%;
+			justify-content: center;
+			gap: 0.65rem;
+
+			margin-top: var(--swiper-bullet-top-margin);
+
+			z-index: 3;
+		}
+
+		&-bullet {
+			--swiper-pagination-bullet-size: 0.9rem;
+
+			height: var(--swiper-pagination-bullet-size);
+			width: var(--swiper-pagination-bullet-size);
+			background-color: var(--bg-primary);
+			border-radius: 100%;
+
+			transition: filter var(--anim-very-fast), background-color var(--anim-very-fast);
+
+			filter: opacity(0.2);
+
+			&-active {
+				filter: opacity(1);
+			}
+
+			&:active {
+				filter: opacity(1);
+				background-color: var(--bg-primary-very-very-dark);
+			}
+
+			@include media-breakpoint-up(md) {
+				&:hover {
+					filter: opacity(1);
+					background-color: var(--bg-primary-very-very-dark);
+				}
+			}
+		}
+	}
+}

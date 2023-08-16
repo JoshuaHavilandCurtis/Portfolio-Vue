@@ -1,0 +1,44 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"allowJs": true /* Allow javascript files to be compiled. */,
+		"checkJs": false /* Report errors in .js files. */,
+		"declaration": false,
+		"sourceMap": false,
+		"strict": true /* Enable all strict type-checking options. */,
+		"noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+		"strictNullChecks": true /* Enable strict null checks. */,
+		"noImplicitThis": true /* Raise error on 'this' expressions with an implied 'any' type. */,
+		"esModuleInterop": true,
+		"noUnusedLocals": true /* Report errors on unused locals. */,
+		"noUnusedParameters": true /* Report errors on unused parameters. */,
+		"noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+		"noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"strictPropertyInitialization": true,
+		"noUncheckedIndexedAccess": true,
+		"strictFunctionTypes": true,
+		"alwaysStrict": true,
+		"baseUrl": "./src",
+		"outDir": "./src",
+		"paths": {
+			"@/*": [
+				"./*"
+			]
+		},
+		"types": [
+			"vite/client"
+		],
+	},
+	"include": [
+		"**/*.ts",
+		"**/*.vue",
+		".eslintrc.js"
+	],
+	"exclude": [
+		"node_modules"
+	],
+	"compileOnSave": true
+}

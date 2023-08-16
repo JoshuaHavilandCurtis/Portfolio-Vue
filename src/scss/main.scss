@@ -1,8 +1,20 @@
 //libs
 @import "~/bootstrap/scss/bootstrap-reboot";
 @import "~/bootstrap/scss/bootstrap-grid";
+@import "~/swiper/swiper";
 
-// Views
+//scss logic
+@import "variables";
+@import "mixins";
+
+//fonts
+@import "fonts/Inter";
+
+//global styles
+@import "vars";
 @import "utils";
-@import "transition";
-@import "global";
+@import "keyframes";
+@import "transitions";
+@import "base";
+@import "swiper";
+@import "product-tag";

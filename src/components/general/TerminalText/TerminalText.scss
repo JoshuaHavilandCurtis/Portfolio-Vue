@@ -1,0 +1,35 @@
+@import "@/scss/mixins";
+
+.terminal-text {
+	$this: &;
+
+	&__cursor {
+		opacity: 1;
+		font-weight: normal;
+		font-style: normal;
+		@include font-size(2rem);
+		line-height: 0;
+
+		&[data-blink="true"] {
+			animation: Blink 1s infinite;
+
+			@keyframes Blink {
+				0% {
+					opacity: 1;
+				}
+				40% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0;
+				}
+				90% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

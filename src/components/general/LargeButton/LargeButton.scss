@@ -1,0 +1,59 @@
+@import "@/scss/mixins";
+
+.large-button {
+	@include font-size(1.15rem);
+
+	outline: unset;
+	border: unset;
+
+	user-select: none;
+
+	padding: 0.5rem 1.25rem;
+	margin: 0;
+
+	@include media-breakpoint-up(md) {
+		padding: 1rem 1.75rem;
+		@include font-size(1.4rem);
+	}
+
+	border-radius: var(--radius-xl);
+
+	transition: color var(--anim-very-fast), background-color var(--anim-very-fast);
+
+	&--link {
+		text-decoration: none;
+	}
+
+	&--filled {
+		background-color: var(--color-primary);
+		color: var(--bg-secondary);
+
+		&:active {
+			background-color: var(--color-primary-dark);
+		}
+
+		@include media-breakpoint-up(md) {
+			&:hover {
+				background-color: var(--color-primary-dark);
+			}
+		}
+	}
+
+	&--ghost {
+		color: var(--color-primary);
+		background-color: transparent;
+		border: 2px solid var(--color-primary);
+
+		&:active {
+			color: var(--bg-primary);
+			background-color: var(--color-primary);
+		}
+
+		@include media-breakpoint-up(md) {
+			&:hover {
+				color: var(--bg-primary);
+				background-color: var(--color-primary);
+			}
+		}
+	}
+}

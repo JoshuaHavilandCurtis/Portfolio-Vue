@@ -1,0 +1,14 @@
+@use "sass:map";
+
+$font_path: "#{$fonts_path}/Inter/";
+$font_name: "Inter";
+$font_prefix: "Inter";
+
+@each $font_face, $details in $standard_font_faces {
+	@font-face {
+		font-family: $font_name;
+		font-style: normal;
+		font-weight: #{map.get($details, weight)};
+		src: url("#{$font_path}#{$font_prefix}-#{map.get($details, name)}.ttf") format("truetype");
+	}
+}

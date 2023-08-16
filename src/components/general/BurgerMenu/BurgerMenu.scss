@@ -1,0 +1,126 @@
+@import "@/scss/mixins";
+
+.burger {
+	align-self: normal;
+	position: relative;
+	margin-bottom: 2rem;
+
+	&__btn.open ~ &__menu {
+		transform: scaleY(1);
+		filter: opacity(1);
+		pointer-events: unset;
+	}
+
+	&__btn {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 0.45rem;
+		width: 3.5rem;
+
+		padding: 0.5rem;
+
+		cursor: pointer;
+
+		&:hover {
+			.bar {
+				background-color: var(--color-primary);
+			}
+		}
+
+		&:active,
+		&.open {
+			.bar {
+				width: 100%;
+			}
+		}
+
+		@include media-breakpoint-up(md) {
+			&:active,
+			&.open {
+				.bar {
+					width: 100%;
+				}
+			}
+		}
+
+		.bar {
+			display: flex;
+			width: 100%;
+			height: 0.35rem;
+			background-color: var(--color-primary-dark);
+			border-radius: var(--radius-md);
+
+			transition: width var(--anim-fast), background-color var(--anim-fast);
+
+			&_1 {
+				width: 60%;
+			}
+
+			&_2 {
+				width: 100%;
+			}
+
+			&_3 {
+				width: 75%;
+			}
+		}
+	}
+
+	&__menu {
+		margin: unset;
+		padding: unset;
+		list-style: none;
+
+		position: absolute;
+		top: calc(100% + 1rem);
+		left: 0;
+		overflow: hidden;
+
+		display: flex;
+		flex-direction: column;
+
+		border-radius: var(--radius-xs);
+		box-shadow: var(--shadow);
+
+		transform-origin: top center;
+		transform: scaleY(0.9) translateY(-0.25rem);
+		filter: opacity(0);
+		pointer-events: none;
+
+		transition: transform var(--anim-very-fast), filter var(--anim-very-fast);
+
+		* {
+			color: var(--bg-secondary);
+		}
+
+		li {
+			display: inline-flex;
+
+			a {
+				@include font-size(1.15rem);
+
+				flex: 1;
+				text-decoration: none;
+				font-weight: 500;
+				padding: 0.6rem 1rem;
+				background-color: var(--color-primary);
+
+				transition: background-color var(--anim-very-fast), color var(--anim-very-fast),
+					filter var(--anim-very-fast);
+
+				&:active {
+					color: var(--color-primary);
+					background-color: var(--bg-secondary);
+				}
+
+				@include media-breakpoint-up(md) {
+					&:hover {
+						color: var(--color-primary);
+						background-color: var(--bg-secondary);
+					}
+				}
+			}
+		}
+	}
+}

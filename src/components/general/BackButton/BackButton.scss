@@ -1,0 +1,28 @@
+@import "@/scss/mixins";
+
+.back-btn {
+	$vertPadding: 0.5rem;
+	padding: $vertPadding 1rem;
+	border-radius: var(--radius-md);
+
+	font-size: 2.5rem;
+	height: 3.25rem - ($vertPadding * 2);
+	color: var(--color-primary-dark);
+	background-color: var(--bg-primary-dark);
+
+	cursor: pointer;
+
+	transition: color var(--anim-fast), background-color var(--anim-fast);
+
+	&:active {
+		color: var(--color-primary);
+		background-color: var(--bg-primary-very-dark);
+	}
+
+	@include media-breakpoint-up(md) {
+		&:hover {
+			color: var(--color-primary);
+			background-color: var(--bg-primary-very-dark);
+		}
+	}
+}

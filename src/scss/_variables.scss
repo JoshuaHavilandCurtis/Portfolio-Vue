@@ -1,0 +1,81 @@
+@use "sass:map";
+
+//path to static assets
+$static_path: "";
+
+//fonts
+$fonts_path: "#{$static_path}/fonts";
+
+$font_sizes: (
+	micro_line: 50,
+	hair_line: 100,
+	thin: 150,
+	ultra_light: 200,
+	extra_light: 250,
+	light: 300,
+	semi_light: 350,
+	regular: 400,
+	book: 450,
+	medium: 500,
+	550: 550,
+	demi_bold: 600,
+	semi_bold: 650,
+	bold: 700,
+	heavy: 750,
+	extra_bold: 800,
+	ultra_bold: 850,
+	black: 900,
+	extra_black: 950,
+	ultra_black: 1000,
+);
+
+$standard_font_faces: (
+	thin: (
+		name: "Thin",
+		weight: map.get($font_sizes, thin),
+	),
+	extra_light: (
+		name: "ExtraLight",
+		weight: map.get($font_sizes, extra_light),
+	),
+	light: (
+		name: "Light",
+		weight: map.get($font_sizes, light),
+	),
+	regular: (
+		name: "Regular",
+		weight: map.get($font_sizes, regular),
+	),
+	medium: (
+		name: "Medium",
+		weight: map.get($font_sizes, medium),
+	),
+	semi_bold: (
+		name: "SemiBold",
+		weight: map.get($font_sizes, semi_bold),
+	),
+	bold: (
+		name: "Bold",
+		weight: map.get($font_sizes, bold),
+	),
+	extra_bold: (
+		name: "ExtraBold",
+		weight: map.get($font_sizes, extra_bold),
+	),
+	black: (
+		name: "Black",
+		weight: map.get($font_sizes, black),
+	),
+);
+
+//bootstrap vars
+$spacer: 1rem !default;
+$grid-gutter-width: 1.5rem !default;
+$breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px,
+) !default;
