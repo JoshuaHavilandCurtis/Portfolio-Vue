@@ -15,7 +15,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"~": "./node_modules",
-			"@": process.env.MODE === "production" ? "." : "./src"
+			"@": process.env.NODE_ENV === "production" ? "." : "./src"
 		}
 	},
 	css: {
