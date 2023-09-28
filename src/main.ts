@@ -1,6 +1,5 @@
 import App from "@/App.vue";
 import router from "@/router";
-import "@/scss/main.scss";
 import * as fontawesome from "@fortawesome/fontawesome-svg-core";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import * as swiper from "swiper/element/bundle";

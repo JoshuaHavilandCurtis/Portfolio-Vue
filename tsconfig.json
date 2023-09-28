@@ -21,11 +21,12 @@
 		"noUncheckedIndexedAccess": true,
 		"strictFunctionTypes": true,
 		"alwaysStrict": true,
-		"baseUrl": "./src",
-		"outDir": "./src",
+		"rootDir": ".",
+		"baseUrl": ".",
+		"outDir": "./dist",
 		"paths": {
 			"@/*": [
-				"./*"
+				"./src/*"
 			]
 		},
 		"types": [
