@@ -1,4 +1,5 @@
 import vue from "@vitejs/plugin-vue";
+import fs from "fs";
 import path from "path";
 import { defineConfig } from "vite";
 import { compression } from "vite-plugin-compression2";
@@ -12,6 +13,8 @@ console.log(`
 
 resolved: ${path.resolve(__dirname, "./src")}
 __dirname: ${__dirname}
+. : ${path.resolve(".")}
+items in __dirname: ${fs.readdirSync(__dirname).join(", ")}
 
 
 
@@ -29,8 +32,8 @@ export default defineConfig({
 	],
 	resolve: {
 		alias: {
-			"~": path.resolve(__dirname, "./node_modules"),
-			"@": path.resolve(__dirname, "./src")
+			"~": path.resolve("./node_modules"),
+			"@": path.resolve("./src")
 		}
 	},
 	css: {
