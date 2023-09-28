@@ -7,7 +7,7 @@ export default defineConfig({
 	plugins: [
 		vue(),
 		compression(),
-		compression({ algorithm: "brotliCompress", exclude: [/\.(br)$/, /\.(gz)$/], deleteOriginalAssets: true })
+		compression({ algorithm: "brotliCompress", exclude: [/\.(br)$/, /\.(gz)$/], deleteOriginalAssets: false })
 	],
 	resolve: {
 		alias: {
