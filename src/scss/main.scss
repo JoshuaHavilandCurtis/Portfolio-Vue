@@ -1,12 +1,10 @@
-@use "sass:map";
-
 //sass logic
 @import "@/scss/variables";
 @import "@/scss/functions";
 @import "@/scss/mixins";
 
 //libs
-@import "~/bootstrap/scss/bootstrap-reboot.scss";
+@import "~/bootstrap/scss/bootstrap-reboot";
 @import "~/bootstrap/scss/functions";
 @import "~/bootstrap/scss/mixins/breakpoints";
 @import "~/bootstrap/scss/variables";
@@ -14,14 +12,14 @@
 @import "~/swiper/swiper";
 
 //fonts
-@import "@/scss/fonts/inter.scss";
+@import "@/scss/fonts/inter";
 
 //global styles
-@import "@/scss/vars.scss";
-@import "@/scss/transitions.scss";
-@import "@/scss/utils.scss";
-@import "@/scss/base.scss";
-@import "@/scss/keyframes.scss";
+@import "@/scss/vars";
+@import "@/scss/transitions";
+@import "@/scss/utils";
+@import "@/scss/base";
+@import "@/scss/keyframes";
 
 //components
-@import "@/scss/components/swiper.scss";
+@import "@/scss/components/swiper";
