@@ -1,0 +1,63 @@
+.work {
+	.back-btn {
+		margin-bottom: cgap(lg);
+	}
+
+	&__main-content {
+		margin: auto 0;
+	}
+
+	.products {
+		.product {
+			$this: ".product";
+
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+
+			&:active {
+				//this is to re-enable the 'grab' cursor on `swiper-wrapper`
+				cursor: unset;
+			}
+
+			@include media-breakpoint-down(lg) {
+				&.swiper-slide-active {
+					#{$this}__overlay {
+						filter: opacity(1);
+					}
+				}
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include hover-focus {
+					#{$this}__overlay {
+						filter: opacity(1);
+					}
+				}
+			}
+
+			&__overlay {
+				position: absolute;
+				inset: 0;
+
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding: cgap(lg);
+				background-color: rgba($bg-primary-very-dark, 0.9);
+				color: var(--color-primary);
+
+				filter: opacity(0);
+				transition: filter anim();
+
+				@include media-breakpoint-down(xl) {
+					padding: cgap(md);
+				}
+
+				hgroup {
+					margin-bottom: unset;
+				}
+			}
+		}
+	}
+}

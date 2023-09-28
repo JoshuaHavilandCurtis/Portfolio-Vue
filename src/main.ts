@@ -1,18 +1,17 @@
 import App from "@/App.vue";
 import router from "@/router";
-import { library } from "@fortawesome/fontawesome-svg-core";
+import * as fontawesome from "@fortawesome/fontawesome-svg-core";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { register } from "swiper/element/bundle";
-import { createApp } from "vue";
+import * as swiper from "swiper/element/bundle";
+import { Component, createApp } from "vue";
 
 //define fontawesome icons
-library.add(faArrowLeft);
+fontawesome.library.add(faArrowLeft);
 
 //register swiper.js
-register();
+swiper.register();
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-const app = createApp(App);
+const app = createApp(App as Component);
 
 app.use(router);
 

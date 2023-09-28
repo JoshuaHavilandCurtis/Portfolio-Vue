@@ -1,0 +1,21 @@
+.section-standard-content {
+	--bg: var(--bg-primary);
+	--color: var(--color-primary);
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	height: 100%; //big one
+	padding: cgap(xxl);
+	background-color: var(--bg);
+	color: var(--color);
+	overflow: auto;
+
+	@include media-breakpoint-down(xl) {
+		padding: cgap(xl);
+	}
+
+	@include media-breakpoint-down(md) {
+		padding: cgap(lg);
+	}
+}

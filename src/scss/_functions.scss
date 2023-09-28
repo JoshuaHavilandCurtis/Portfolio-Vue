@@ -1,0 +1,13 @@
+@use "sass:map";
+
+@function cgap($size) {
+	@return map.get($cgaps, $size);
+}
+
+@function radius($size: normal) {
+	@return map.get($radii, $size);
+}
+
+@function anim($speed: normal, $timing-fn: ease-in-out) {
+	@return map.get($anim-speeds, $speed) $timing-fn;
+}

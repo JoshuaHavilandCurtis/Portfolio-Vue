@@ -1,9 +1,11 @@
 <template>
-	<FontAwesomeIcon
+	<button
 		class="back-btn"
-		icon="fa-solid fa-arrow-left"
+		aria-label="Go back"
 		@click="goBack()"
-	/>
+	>
+		<FontAwesomeIcon icon="fa-solid fa-arrow-left" />
+	</button>
 </template>
 
 <script setup lang="ts">

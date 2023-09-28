@@ -1,23 +1,24 @@
 <template>
 	<Transition
-		appear
+		v-if="initialDelayFinished"
 		name="fade"
 	>
 		<div
-			v-if="visible"
+			v-if="open"
 			class="panel-backdrop"
-			@click="() => closePanel()"
-			@touchmove="(ev: TouchEvent) => slidePanel(ev.touches[0]!.clientX)"
-			@touchend="() => checkIfShouldClosePanel()"
+			@click="closeAction"
+			@touchstart="getPanelStartingPosX"
+			@touchmove="ev => slidePanel(ev.touches[0]!.clientX)"
+			@touchend="checkIfShouldClosePanel"
 		/>
 	</Transition>
 
 	<Transition
-		appear
+		v-if="initialDelayFinished"
 		name="slide-in-from-right"
 	>
 		<div
-			v-if="visible"
+			v-if="open"
 			ref="panelElRef"
 			class="panel"
 		>
@@ -27,39 +28,65 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { delay } from "@/utils/common";
+import { computed, onMounted, ref, watch } from "vue";
 
 const props = defineProps<{
-	visible: boolean;
-	closeFn: () => void;
+	open: boolean;
+	closeAction: () => void;
 }>();
 
+const checkPanel = (value = props.open) => {
+	if (value) {
+		document.body.style.overflow = "hidden";
+	} else {
+		document.body.style.overflow = "";
+	}
+};
+
+onMounted(checkPanel);
+watch(computed(() => props.open), checkPanel);
+
+/**
+ * Delay timer exists to stop Transition playing half an animation on page load.
+ */
+const initialDelayFinished = ref(false);
+void delay(0).then(() => initialDelayFinished.value = true);
+
+/**
+ * Close panel on ESC keypress.
+ */
 document.addEventListener("keydown", ev => {
 	if (ev.key !== "Escape" && ev.key !== "Esc")
 		return;
-	void closePanel();
+	props.closeAction();
 });
 
 const panelElRef = ref<HTMLElement | null>(null);
 
 /**
- * The position of the most recent Touch event, relative to the panel.
+ * The position of the most recent Touch event, relative to the panel's
+ * currently set starting position.
  */
 let posX_relativeToPanel: number | null = null;
+let panelStartingPosX: number | null = null;
+
+const getPanelStartingPosX = () => panelStartingPosX = panelElRef.value?.getBoundingClientRect().left ?? 0;
 
 /**
  * Attempt to slide the panel relative to `posX`.
  * @param posX X position of TouchEvent
  */
 const slidePanel = (posX: number) => {
-	if (panelElRef.value === null)
-		throw new Error("Missing panel element ref!");
+	if (panelElRef.value === null || panelStartingPosX === null)
+		return;
 
-	//get the panels offset from its starting position
-	posX_relativeToPanel = posX - panelElRef.value.offsetLeft;
-	//if posX_relativeToPanel is negative, dont transform (dont go backwards)
+	posX_relativeToPanel = posX - panelStartingPosX;
+
+	//dont go backwards
 	if (posX_relativeToPanel < 0)
 		return;
+
 	//remove transition delay and set transform
 	panelElRef.value.style.transition = "unset";
 	panelElRef.value.style.transform = `translateX(${posX_relativeToPanel}px)`;
@@ -70,10 +97,10 @@ const slidePanel = (posX: number) => {
  * be closed after `touchend` event is fired.
  */
 const checkIfShouldClosePanel = () => {
-	if (panelElRef.value === null)
-		throw new Error("Missing panel element ref!");
-	if (posX_relativeToPanel === null)
+	if (panelElRef.value === null || posX_relativeToPanel === null)
 		return;
+
+	panelStartingPosX = null;
 
 	//readd transition delay and unset transform
 	panelElRef.value.style.transition = "";
@@ -85,10 +112,8 @@ const checkIfShouldClosePanel = () => {
 
 	//otherwise, close panel
 	posX_relativeToPanel = null;
-	void closePanel(); //works together with <transition> component
+	props.closeAction();
 };
-
-const closePanel = () => props.closeFn();
 </script>
 
 <style scoped src="./Panel.scss" />

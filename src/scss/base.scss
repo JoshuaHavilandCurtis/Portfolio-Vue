@@ -1,44 +1,37 @@
 body {
 	position: relative;
 	overflow-x: hidden;
-	font-family: Inter;
+	font-family: Inter, sans-serif;
 	word-break: break-word;
-
+	// hyphens: auto; //todo -> hmm
 	min-height: 100vh;
 	min-height: 100dvh;
-
-	@include media-breakpoint-up(lg) {
-		height: 100vh;
-		height: 100dvh;
-	}
 
 	::selection {
 		background-color: var(--bg-secondary);
 	}
 }
 
-/* width */
-::-webkit-scrollbar {
-	width: 0.5rem;
+@media (pointer: fine) {
+	::-webkit-scrollbar {
+		width: 0.5rem;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--bg-primary-very-dark);
+
+		&:hover {
+			background: var(--bg-primary-very-very-dark);
+		}
+	}
 }
 
-/* Track */
-// ::-webkit-scrollbar-track {
-// 	background: var(--bg-primary-light);
-// }
+hgroup {
+	margin-bottom: cgap(md);
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background: var(--bg-primary-very-dark);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-	background: var(--bg-primary-very-very-dark);
-}
-
-h1 {
-	margin-bottom: 1.5rem;
+	> *:last-child {
+		margin-bottom: unset;
+	}
 }
 
 h1,
@@ -53,8 +46,16 @@ h6 {
 	font-weight: 500;
 }
 
+p {
+	&:last-child {
+		margin-bottom: unset;
+	}
+}
+
 a {
-	&:hover {
-		color: var(--bg-secondary);
+	color: var(--color-alt);
+
+	@include hover-focus {
+		color: var(--color-alt-dark);
 	}
 }

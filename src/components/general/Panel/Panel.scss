@@ -1,20 +1,24 @@
 .panel {
+	--bg: var(--bg-primary);
+	--color: var(--color-primary);
+
 	position: fixed;
 	z-index: 10;
 	inset: 0 0 0 20%;
-	max-height: 100vh;
-	max-height: 100dvh;
-	min-height: 100vh;
-	min-height: 100dvh;
-	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.45);
-	background-color: var(--bg-primary);
+	height: 100vh;
+	height: 100dvh;
 
-	transition: transform var(--anim);
+	background-color: var(--bg);
+	color: var(--color);
+	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.45);
+
+	transition: transform anim(slow);
 }
 
 .panel-backdrop {
 	position: fixed;
-	inset: 0;
-	z-index: 9;
+	z-index: 5;
+	inset: -100vh -100vw;
+
 	background-color: #00000071;
 }

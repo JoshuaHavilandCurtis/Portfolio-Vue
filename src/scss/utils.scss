@@ -1,0 +1,68 @@
+.product-tag {
+	// --product-tag-color is provided by the component
+	border: 2px solid var(--product-tag-color);
+	color: var(--product-tag-color);
+	background-color: var(--bg-primary-very-dark);
+	padding: 5px 16px;
+	border-radius: radius(md);
+	font-weight: bold;
+
+	&::selection {
+		background-color: var(--product-tag-color);
+		color: var(--bg-primary-very-dark);
+	}
+}
+
+.btn {
+	text-decoration: none;
+	outline: unset;
+	border: unset;
+	user-select: none;
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: radius(xl);
+	margin: unset;
+	transform: scale(1);
+
+	transition:
+		color anim(),
+		background-color anim(),
+		transform anim(),
+		filter anim();
+
+	@include media-breakpoint-down(md) {
+		@include font-size(1.15rem);
+		padding: 8px 20px;
+	}
+
+	@include hover-active-focus {
+		transform: scale(1.055);
+	}
+
+	&--large {
+		@include font-size(1.4rem);
+		padding: 16px 28px;
+	}
+
+	&--filled {
+		background-color: var(--color-primary);
+		color: var(--bg-secondary);
+
+		@include hover-active-focus {
+			background-color: var(--color-primary-dark);
+		}
+	}
+
+	&--ghost {
+		color: var(--color-primary);
+		background-color: transparent;
+		border: 2px solid var(--color-primary);
+
+		@include hover-active-focus {
+			color: var(--bg-primary);
+			background-color: var(--color-primary);
+		}
+	}
+}

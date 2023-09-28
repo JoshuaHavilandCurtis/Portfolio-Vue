@@ -1,29 +1,14 @@
 :root {
-	--color-primary: #f8f6d5;
-	--color-primary-dark: #d3d1b5;
-
-	--bg-primary-light: #3b4c57;
-	--bg-primary: #2f3d46;
-	--bg-primary-dark: #28343b;
-	--bg-primary-very-dark: #222c32;
-	--bg-primary-very-very-dark: #192025;
-
-	--bg-secondary: #1e272d;
-
-	--radius-xl: 2rem;
-	--radius-lg: 1.5rem;
-	--radius-md: 1rem;
-	--radius-sm: 0.75rem;
-	--radius-xs: 0.5rem;
-
-	--anim-very-fast: 100ms ease-in-out;
-	--anim-fast: 150ms ease-in-out;
-	--anim: 300ms ease-in-out;
-	--anim-slow: 500ms ease-in-out;
-	--anim-very-slow: 750ms ease-in-out;
-
-	--loader-bg: var(--bg-secondary);
-	--loader-color: var(--color-primary);
-
-	--shadow: 0px 0px 40px -14px black;
+	--color-primary: #{$color-primary};
+	--color-primary-dark: #{$color-primary-dark};
+	--color-alt: rgb(105, 195, 201);
+	--color-alt-dark: rgb(74, 138, 143);
+	--bg-primary-light: #{$bg-primary-light};
+	--bg-primary: #{$bg-primary};
+	--bg-primary-dark: #{$bg-primary-dark};
+	--bg-primary-very-dark: #{$bg-primary-very-dark};
+	--bg-primary-very-very-dark: #{$bg-primary-very-very-dark};
+	--bg-secondary: #{$bg-secondary};
+	--bg-secondary-dark: #{$bg-secondary-dark};
+	--shadow: #{$shadow};
 }

@@ -6,4 +6,3 @@ This is a rework of my existing portfolio website using more modern and effectiv
 - Vue3 Composition API
 - Bootstrap
 - Typescript
-- Axios

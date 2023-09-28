@@ -1,20 +1,27 @@
+@use "sass:map";
+
+//sass logic
+@import "@/scss/variables";
+@import "@/scss/functions";
+@import "@/scss/mixins";
+
 //libs
 @import "~/bootstrap/scss/bootstrap-reboot";
-@import "~/bootstrap/scss/bootstrap-grid";
+@import "~/bootstrap/scss/functions";
+@import "~/bootstrap/scss/mixins/breakpoints";
+@import "~/bootstrap/scss/variables";
+@import "~/bootstrap/scss/vendor/rfs";
 @import "~/swiper/swiper";
 
-//scss logic
-@import "variables";
-@import "mixins";
-
 //fonts
-@import "fonts/Inter";
+@import "@/scss/fonts/inter";
 
 //global styles
-@import "vars";
-@import "utils";
-@import "keyframes";
-@import "transitions";
-@import "base";
-@import "swiper";
-@import "product-tag";
+@import "@/scss/vars";
+@import "@/scss/transitions";
+@import "@/scss/utils";
+@import "@/scss/base";
+@import "@/scss/keyframes";
+
+//components
+@import "@/scss/components/swiper";

@@ -1,14 +1,53 @@
 @use "sass:map";
 
-$font_path: "#{$fonts_path}/Inter/";
-$font_name: "Inter";
-$font_prefix: "Inter";
+$path: "#{$assets-path}/fonts/Inter";
+$name: "Inter";
+$prefix: "Inter";
+$faces: (
+	(
+		suffix: "Thin",
+		weight: map.get($font_weights, thin)
+	),
+	(
+		suffix: "ExtraLight",
+		weight: map.get($font_weights, extra-light)
+	),
+	(
+		suffix: "Light",
+		weight: map.get($font_weights, light)
+	),
+	(
+		suffix: "Regular",
+		weight: map.get($font_weights, regular)
+	),
+	(
+		suffix: "Medium",
+		weight: map.get($font_weights, medium)
+	),
+	(
+		suffix: "SemiBold",
+		weight: map.get($font_weights, semi-bold)
+	),
+	(
+		suffix: "Bold",
+		weight: map.get($font_weights, bold)
+	),
+	(
+		suffix: "ExtraBold",
+		weight: map.get($font_weights, extra-bold)
+	),
+	(
+		suffix: "Black",
+		weight: map.get($font_weights, black)
+	)
+);
 
-@each $font_face, $details in $standard_font_faces {
+@each $face in $faces {
 	@font-face {
-		font-family: $font_name;
+		font-family: $name;
 		font-style: normal;
-		font-weight: #{map.get($details, weight)};
-		src: url("#{$font_path}#{$font_prefix}-#{map.get($details, name)}.ttf") format("truetype");
+		font-weight: map.get($face, weight);
+		$full-path: "#{$path}/#{$prefix}-#{map.get($face, suffix)}";
+		src: url("#{$full-path}.ttf") format("truetype");
 	}
 }

@@ -1,27 +1,27 @@
 <template>
 	<div class="burger">
 		<div
-			ref="burgerBtn"
+			ref="burgerBtnElRef"
 			class="burger__btn"
-			@click="() => toggleBurger()"
+			@click="toggle"
 		>
-			<span class="bar bar_1" />
-			<span class="bar bar_2" />
-			<span class="bar bar_3" />
+			<span class="bar" />
+			<span class="bar" />
+			<span class="bar" />
 		</div>
 		<menu
-			ref="burgerMenu"
+			ref="burgerMenuElRef"
 			class="burger__menu"
 		>
 			<li
-				v-for="route in routes"
-				:key="route.name"
+				v-for="item of items"
+				:key="item.label"
 			>
 				<RouterLink
-					:to="route.path"
-					@click="() => closeBurger()"
+					:to="item.href"
+					@click="close"
 				>
-					{{ route.name !== undefined ? route.name : route.path ?? "Route" }}
+					{{ item.label }}
 				</RouterLink>
 			</li>
 		</menu>
@@ -29,37 +29,50 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import { useRouter } from "vue-router";
+import { onMounted, ref } from "vue";
 
-const router = useRouter();
+defineProps<{
+	items: {
+		label: string;
+		href: string;
+	}[];
+}>();
 
-const burgerBtn = ref<HTMLElement | null>(null);
-const burgerMenu = ref<HTMLElement | null>(null);
+const burgerBtnElRef = ref<HTMLElement | null>(null);
+const burgerMenuElRef = ref<HTMLElement | null>(null);
+let opened = false;
 
-let burgerOpened = false;
+const toggle = () => opened ? close() : open();
 
-const routes = computed(() => router.options.routes.filter(route => route.path !== "/"));
-
-const toggleBurger = () => burgerOpened ? closeBurger() : openBurger();
-
-const openBurger = () => {
-	burgerBtn.value?.classList.add("open");
-	setTimeout(() => addEventListener("click", closeBurgerIfClickingOff), 0);
-	burgerOpened = true;
-};
-
-const closeBurger = () => {
-	burgerBtn.value?.classList.remove("open");
-	removeEventListener("click", closeBurgerIfClickingOff);
-	burgerOpened = false;
-};
-
-const closeBurgerIfClickingOff = (ev: MouseEvent) => {
-	const target = ev.target as HTMLElement;
-	if (burgerMenu.value?.contains(target) === true)
+onMounted(() => {
+	if (burgerBtnElRef.value === null)
 		return;
-	closeBurger();
+
+	burgerBtnElRef.value.dataset.visible = "false";
+});
+
+const open = () => {
+	if (burgerBtnElRef.value === null)
+		return;
+	burgerBtnElRef.value.dataset.visible = "true";
+	setTimeout(() => addEventListener("click", closeWhenClickingOff), 0);
+	opened = true;
+};
+
+const close = () => {
+	if (burgerBtnElRef.value === null)
+		return;
+	burgerBtnElRef.value.dataset.visible = "false";
+	removeEventListener("click", closeWhenClickingOff);
+	opened = false;
+};
+
+const closeWhenClickingOff = (ev: MouseEvent) => {
+	const target = ev.target as HTMLElement;
+	if (burgerMenuElRef.value?.contains(target) === true)
+		return;
+
+	close();
 };
 
 </script>

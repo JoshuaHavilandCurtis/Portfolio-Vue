@@ -1,0 +1,126 @@
+@import "@/scss/mixins";
+
+.swiper {
+	$pagination-mt: cgap(md);
+	$btn-offset: cgap(lg);
+
+	z-index: unset;
+	position: unset;
+
+	&-wrapper {
+		display: flex;
+
+		z-index: unset;
+		position: unset;
+
+		&:active {
+			cursor: grab !important;
+		}
+	}
+
+	&-slide {
+		height: unset;
+	}
+
+	&-button {
+		&-next,
+		&-prev {
+			position: absolute;
+			top: 50%;
+			z-index: 3;
+			border-radius: radius(md);
+			margin-top: calc(3rem * -0.5 - $pagination-mt);
+			height: 3.75rem;
+			width: 3rem;
+			text-align: center;
+
+			background-color: rgba($bg-secondary, 0.3);
+
+			filter: opacity(1);
+
+			transition:
+				filter anim(fast),
+				background-color anim(fast);
+
+			@include media-breakpoint-down(sm) {
+				display: none;
+			}
+
+			@include hover-active-focus {
+				background-color: var(--bg-secondary);
+			}
+
+			&.swiper-button-disabled {
+				filter: opacity(0);
+				cursor: unset;
+				pointer-events: none;
+			}
+
+			&:after {
+				color: var(--color-primary);
+				line-height: 0.725;
+				font-size: 4.5rem;
+				padding-bottom: 0.5rem; //scuffed
+
+				transition:
+					color anim(fast),
+					filter anim(fast);
+			}
+		}
+
+		&-next {
+			right: $btn-offset;
+
+			&:after {
+				content: "\203A";
+			}
+		}
+
+		&-prev {
+			left: $btn-offset;
+
+			&:after {
+				content: "\2039";
+			}
+		}
+	}
+
+	&-pagination {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		gap: 10px;
+
+		margin-top: $pagination-mt;
+
+		z-index: 3;
+
+		&-bullet {
+			$size: 0.9rem;
+
+			height: $size;
+			width: $size;
+			background-color: var(--bg-primary);
+			border-radius: 100%;
+
+			transition:
+				filter anim(fast),
+				background-color anim(fast);
+
+			filter: opacity(0.2);
+
+			&-active {
+				filter: opacity(1);
+			}
+
+			@include hover-active-focus {
+				filter: opacity(1);
+				background-color: var(--bg-primary-very-very-dark);
+			}
+		}
+	}
+
+	&-notification {
+		display: none;
+	}
+}

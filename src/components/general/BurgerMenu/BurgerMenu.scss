@@ -1,11 +1,16 @@
-@import "@/scss/mixins";
-
 .burger {
-	align-self: normal;
+	align-self: normal; //todo -> not ideal
 	position: relative;
-	margin-bottom: 2rem;
+	margin-bottom: cgap(lg);
 
-	&__btn.open ~ &__menu {
+	//just for keyboard navigation, :has() is okay here
+	&:has(a:focus-visible) &__menu {
+		transform: scaleY(1);
+		filter: opacity(1);
+		pointer-events: unset;
+	}
+
+	&__btn[data-visible="true"] ~ &__menu {
 		transform: scaleY(1);
 		filter: opacity(1);
 		pointer-events: unset;
@@ -14,31 +19,33 @@
 	&__btn {
 		display: flex;
 		flex-direction: column;
+		justify-content: space-around;
 		align-items: flex-end;
-		gap: 0.45rem;
-		width: 3.5rem;
 
-		padding: 0.5rem;
-
+		width: 56px;
+		height: $icon-btn-height;
+		padding: 8px;
 		cursor: pointer;
 
-		&:hover {
+		@include hover-active-focus {
 			.bar {
 				background-color: var(--color-primary);
+
+				&:nth-of-type(1),
+				&:nth-of-type(2),
+				&:nth-of-type(3) {
+					width: 100%;
+				}
 			}
 		}
 
-		&:active,
-		&.open {
+		&[data-visible="true"] {
 			.bar {
-				width: 100%;
-			}
-		}
+				background-color: var(--color-primary);
 
-		@include media-breakpoint-up(md) {
-			&:active,
-			&.open {
-				.bar {
+				&:nth-of-type(1),
+				&:nth-of-type(2),
+				&:nth-of-type(3) {
 					width: 100%;
 				}
 			}
@@ -47,21 +54,23 @@
 		.bar {
 			display: flex;
 			width: 100%;
-			height: 0.35rem;
+			height: 5px;
 			background-color: var(--color-primary-dark);
-			border-radius: var(--radius-md);
+			border-radius: radius(md);
 
-			transition: width var(--anim-fast), background-color var(--anim-fast);
+			transition:
+				width anim(),
+				background-color anim();
 
-			&_1 {
+			&:nth-of-type(1) {
 				width: 60%;
 			}
 
-			&_2 {
+			&:nth-of-type(2) {
 				width: 100%;
 			}
 
-			&_3 {
+			&:nth-of-type(3) {
 				width: 75%;
 			}
 		}
@@ -80,7 +89,7 @@
 		display: flex;
 		flex-direction: column;
 
-		border-radius: var(--radius-xs);
+		border-radius: radius(xs);
 		box-shadow: var(--shadow);
 
 		transform-origin: top center;
@@ -88,11 +97,11 @@
 		filter: opacity(0);
 		pointer-events: none;
 
-		transition: transform var(--anim-very-fast), filter var(--anim-very-fast);
+		transition:
+			transform anim(fast),
+			filter anim(fast);
 
-		* {
-			color: var(--bg-secondary);
-		}
+		color: var(--bg-secondary);
 
 		li {
 			display: inline-flex;
@@ -100,25 +109,22 @@
 			a {
 				@include font-size(1.15rem);
 
-				flex: 1;
+				color: inherit;
+				flex-basis: 100%;
+				outline: 0;
 				text-decoration: none;
 				font-weight: 500;
 				padding: 0.6rem 1rem;
 				background-color: var(--color-primary);
 
-				transition: background-color var(--anim-very-fast), color var(--anim-very-fast),
-					filter var(--anim-very-fast);
+				transition:
+					background-color anim(fast),
+					color anim(fast),
+					filter anim(fast);
 
-				&:active {
+				@include hover-active-focus {
 					color: var(--color-primary);
 					background-color: var(--bg-secondary);
-				}
-
-				@include media-breakpoint-up(md) {
-					&:hover {
-						color: var(--color-primary);
-						background-color: var(--bg-secondary);
-					}
 				}
 			}
 		}

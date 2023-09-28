@@ -1,28 +1,25 @@
-@import "@/scss/mixins";
-
 .back-btn {
-	$vertPadding: 0.5rem;
-	padding: $vertPadding 1rem;
-	border-radius: var(--radius-md);
+	border: unset;
 
-	font-size: 2.5rem;
-	height: 3.25rem - ($vertPadding * 2);
+	padding: 8px 16px;
+	border-radius: radius(md);
+
+	height: $icon-btn-height;
 	color: var(--color-primary-dark);
 	background-color: var(--bg-primary-dark);
 
 	cursor: pointer;
 
-	transition: color var(--anim-fast), background-color var(--anim-fast);
+	transition:
+		color anim(),
+		background-color anim();
 
-	&:active {
+	@include hover-active-focus {
 		color: var(--color-primary);
 		background-color: var(--bg-primary-very-dark);
 	}
 
-	@include media-breakpoint-up(md) {
-		&:hover {
-			color: var(--color-primary);
-			background-color: var(--bg-primary-very-dark);
-		}
+	svg {
+		height: 100%;
 	}
 }

@@ -1,0 +1,126 @@
+.section-split-content {
+	$this: &;
+
+	--bg: var(--bg-primary);
+	--color: var(--color-primary);
+
+	height: 100%; //big one
+
+	display: flex;
+	background-color: var(--bg);
+	color: var(--color);
+	overflow: auto;
+
+	@include media-breakpoint-down(lg) {
+		flex-direction: column;
+	}
+
+	/* theme styles */
+	.btn {
+		background-color: var(--color-primary);
+		color: var(--bg-secondary);
+	}
+
+	&__first,
+	&__second {
+		flex-basis: 100%;
+	}
+
+	&__first {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		overflow-y: auto;
+		padding: cgap(xxl);
+
+		@include media-breakpoint-down(xl) {
+			padding: cgap(xl);
+		}
+
+		@include media-breakpoint-down(lg) {
+			overflow-y: unset;
+			margin-bottom: auto;
+		}
+
+		@include media-breakpoint-down(md) {
+			padding: cgap(lg);
+		}
+	}
+
+	&__second {
+		display: flex;
+		overflow: hidden;
+
+		@include media-breakpoint-down(lg) {
+			overflow: unset;
+		}
+
+		&--image {
+			max-height: 100%;
+			align-items: center;
+
+			@include media-breakpoint-down(lg) {
+				align-items: unset;
+			}
+
+			img {
+				object-fit: cover;
+				min-width: 100%;
+				min-height: 100%;
+				width: auto;
+
+				@include media-breakpoint-down(lg) {
+					max-height: max(60vh, 300px);
+				}
+			}
+		}
+
+		&--swiper {
+			position: relative;
+			background-color: white;
+			align-items: center;
+			color: var(--bg-secondary);
+
+			.swiper {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				flex-basis: 100%;
+				padding: cgap(md) 0;
+				height: 55%;
+
+				@include media-breakpoint-down(lg) {
+					height: 100%;
+					padding: cgap(xl) 0;
+				}
+
+				@include media-breakpoint-down(md) {
+					padding: cgap(lg) 0;
+				}
+
+				.swiper-wrapper {
+					.swiper-slide {
+						min-height: min(70vh, 250px);
+						border-radius: radius(lg);
+						background-repeat: no-repeat;
+						background-position: center;
+						background-size: cover;
+					}
+				}
+			}
+		}
+	}
+
+	&--min-vp-height-slots {
+		#{$this}__first {
+			max-height: unset;
+			min-height: 100vh;
+			min-height: 100svh;
+
+			@include media-breakpoint-down(lg) {
+				min-height: 95vh;
+				min-height: 95svh;
+			}
+		}
+	}
+}

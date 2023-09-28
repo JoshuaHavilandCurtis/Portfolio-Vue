@@ -1,81 +1,70 @@
 @use "sass:map";
 
-//path to static assets
-$static_path: "";
+$assets-path: "/assets";
 
-//fonts
-$fonts_path: "#{$static_path}/fonts";
-
-$font_sizes: (
-	micro_line: 50,
-	hair_line: 100,
+$font-weights: (
+	micro-line: 50,
+	hair-line: 100,
 	thin: 150,
-	ultra_light: 200,
-	extra_light: 250,
+	ultra-light: 200,
+	extra-light: 250,
 	light: 300,
-	semi_light: 350,
+	semi-light: 350,
 	regular: 400,
 	book: 450,
 	medium: 500,
 	550: 550,
-	demi_bold: 600,
-	semi_bold: 650,
+	demi-bold: 600,
+	semi-bold: 650,
 	bold: 700,
 	heavy: 750,
-	extra_bold: 800,
-	ultra_bold: 850,
+	extra-bold: 800,
+	ultra-bold: 850,
 	black: 900,
-	extra_black: 950,
-	ultra_black: 1000,
+	extra-black: 950,
+	ultra-black: 1000
 );
 
-$standard_font_faces: (
-	thin: (
-		name: "Thin",
-		weight: map.get($font_sizes, thin),
-	),
-	extra_light: (
-		name: "ExtraLight",
-		weight: map.get($font_sizes, extra_light),
-	),
-	light: (
-		name: "Light",
-		weight: map.get($font_sizes, light),
-	),
-	regular: (
-		name: "Regular",
-		weight: map.get($font_sizes, regular),
-	),
-	medium: (
-		name: "Medium",
-		weight: map.get($font_sizes, medium),
-	),
-	semi_bold: (
-		name: "SemiBold",
-		weight: map.get($font_sizes, semi_bold),
-	),
-	bold: (
-		name: "Bold",
-		weight: map.get($font_sizes, bold),
-	),
-	extra_bold: (
-		name: "ExtraBold",
-		weight: map.get($font_sizes, extra_bold),
-	),
-	black: (
-		name: "Black",
-		weight: map.get($font_sizes, black),
-	),
+//bootstrap custom vars
+$grid-gutter-width: 64px;
+
+$cgaps: (
+	xs: 4px,
+	sm: 16px,
+	md: 24px,
+	lg: 32px,
+	xl: 64px,
+	xxl: 96px
 );
 
-//bootstrap vars
-$spacer: 1rem !default;
-$grid-gutter-width: 1.5rem !default;
-$breakpoints: (
-	xs: 0,
-	sm: 576px,
-	md: 768px,
-	lg: 992px,
-	xl: 1200px,
-	xxl: 1400px,
-) !default;
+$radii: (
+	xs: 0.5rem,
+	sm: 0.75rem,
+	md: 1rem,
+	lg: 1.5rem,
+	xl: 2rem
+);
+
+$anim-speeds: (
+	very-slow: 500ms,
+	slow: 300ms,
+	normal: 150ms,
+	fast: 100ms,
+	very-fast: 75ms
+);
+
+$icon-btn-height: 52px;
+
+//todo -> sort these colors into proper names
+
+$color-primary: rgb(248, 246, 213);
+$color-primary-dark: rgb(211, 209, 181);
+$bg-primary-light: rgb(59, 76, 87);
+$bg-primary: rgb(47, 61, 70);
+$bg-primary-dark: rgb(40, 52, 59);
+$bg-primary-very-dark: rgb(34, 44, 50);
+$bg-primary-very-very-dark: rgb(25, 32, 37);
+$bg-secondary: rgb(24, 31, 35);
+$bg-secondary-dark: rgb(11, 13, 16);
+
+$shadow: 0px 0px 40px -14px black;

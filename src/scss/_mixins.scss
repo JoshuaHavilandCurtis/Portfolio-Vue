@@ -1,26 +1,36 @@
-@import "variables";
-@import "~/bootstrap/scss/mixins";
-
-@mixin media-breakpoint-up($breakpoint) {
-	@if map-has-key($breakpoints, $breakpoint) {
-		$breakpoint-value: map-get($breakpoints, $breakpoint);
-
-		@media (min-width: $breakpoint-value) {
+@mixin hover-active {
+	@media (pointer: fine) {
+		&:hover {
 			@content;
 		}
-	} @else {
-		@warn "Invalid breakpoint: #{$breakpoint}.";
+	}
+	@media (pointer: coarse) {
+		&:active {
+			@content;
+		}
 	}
 }
 
-@mixin media-breakpoint-down($breakpoint) {
-	@if map-has-key($breakpoints, $breakpoint) {
-		$breakpoint-value: map-get($breakpoints, $breakpoint);
+@mixin hover-focus {
+	&:hover,
+	&:focus-visible {
+		@content;
+	}
+}
 
-		@media (max-width: ($breakpoint-value - 0.02)) {
+@mixin hover-active-focus {
+	@media (pointer: fine) {
+		&:hover {
 			@content;
 		}
-	} @else {
-		@warn "Invalid breakpoint: #{$breakpoint}.";
+	}
+	@media (pointer: coarse) {
+		&:active {
+			@content;
+		}
+	}
+
+	&:focus-visible {
+		@content;
 	}
 }

@@ -1,7 +1,7 @@
 /* Content loader */
 .content-loaded {
 	&-leave-active {
-		animation: FadeOut var(--anim);
+		animation: FadeOut anim(slow);
 	}
 }
 
@@ -13,7 +13,7 @@
 		&-left {
 			&-enter-active,
 			&-leave-active {
-				transition: transform var(--anim);
+				transition: transform anim(slow);
 			}
 
 			&-enter-from,
@@ -31,12 +31,12 @@
 		&-right {
 			&-enter-active,
 			&-leave-active {
-				transition: transform var(--anim);
+				transition: transform anim(slow);
 			}
 
 			&-enter-from,
 			&-leave-to {
-				transform: translateX(100%);
+				transform: translateX(100vw);
 			}
 
 			&-enter-to,
@@ -51,23 +51,23 @@
 .fade {
 	//in and out
 	&-enter-active {
-		animation: FadeIn var(--anim);
+		animation: FadeIn anim(slow);
 	}
 	&-leave-active {
-		animation: FadeOut var(--anim);
+		animation: FadeOut anim(slow);
 	}
 
 	//in only
 	&-in {
 		&-enter-active {
-			animation: FadeIn var(--anim);
+			animation: FadeIn anim(slow);
 		}
 	}
 
 	//out only
 	&-out {
 		&-leave-active {
-			animation: FadeOut var(--anim);
+			animation: FadeOut anim(slow);
 		}
 	}
 
@@ -75,23 +75,23 @@
 	&-slow {
 		//in and out
 		&-enter-active {
-			animation: FadeIn var(--anim-slow);
+			animation: FadeIn anim(very-slow);
 		}
 		&-leave-active {
-			animation: FadeOut var(--anim-slow);
+			animation: FadeOut anim(very-slow);
 		}
 
 		//in only
 		&-in {
 			&-enter-active {
-				animation: FadeIn var(--anim-slow);
+				animation: FadeIn anim(very-slow);
 			}
 		}
 
 		//out only
 		&-out {
 			&-leave-active {
-				animation: FadeOut var(--anim-slow);
+				animation: FadeOut anim(very-slow);
 			}
 		}
 	}
