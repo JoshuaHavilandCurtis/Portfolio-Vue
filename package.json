@@ -1,7 +1,8 @@
 {
-  "name": "vue-portfolio",
-  "version": "0.0.0",
+  "name": "portfolio-app",
   "private": true,
+  "version": "1.0.0",
+  "description": "My portfolio app",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",

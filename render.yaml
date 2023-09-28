@@ -1,0 +1,16 @@
+services:
+  - type: static
+    plan: free
+    region: frankfurt
+    numInstances: 1
+    name: portfolio-app
+    runtime: static
+    branch: main
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./build
+    healthCheckPath: /_health
+    autoDeploy: false
+    headers:
+    - path: /*
+      name: X-Frame-Options
+      value: sameorigin
