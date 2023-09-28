@@ -1,6 +1,5 @@
 import vue from "@vitejs/plugin-vue";
 import dotenv from "dotenv";
-import path from "path";
 import { defineConfig } from "vite";
 import { compression } from "vite-plugin-compression2";
 
@@ -15,8 +14,8 @@ export default defineConfig({
 	],
 	resolve: {
 		alias: {
-			"~": path.resolve("./node_modules"),
-			"@": path.resolve(process.env.mode === "production" ? "." : "./src")
+			"~": "./node_modules",
+			"@": process.env.mode === "production" ? "." : "./src"
 		}
 	},
 	css: {
