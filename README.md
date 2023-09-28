@@ -1,6 +1,4 @@
-# Personal portfolio rebuild
-
-Use Node v20.
+# Portfolio app
 
 This is a rework of my existing portfolio website using more modern and effective solutions:
 - Strapi Headless CMS integration
@@ -8,3 +6,5 @@ This is a rework of my existing portfolio website using more modern and effectiv
 - Vue3 Composition API
 - Bootstrap
 - Typescript
+
+Use latest node version.
