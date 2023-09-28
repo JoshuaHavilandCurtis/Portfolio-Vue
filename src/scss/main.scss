@@ -1,7 +1,7 @@
 //sass logic
-@import "variables";
-@import "functions";
-@import "mixins";
+@import "@/scss/variables";
+@import "@/scss/functions";
+@import "@/scss/mixins";
 
 //libs
 @import "~/bootstrap/scss/bootstrap-reboot";
@@ -12,14 +12,14 @@
 @import "~/swiper/swiper";
 
 //fonts
-@import "fonts/inter";
+@import "@/scss/fonts/inter";
 
 //global styles
-@import "vars";
-@import "transitions";
-@import "utils";
-@import "base";
-@import "keyframes";
+@import "@/scss/vars";
+@import "@/scss/transitions";
+@import "@/scss/utils";
+@import "@/scss/base";
+@import "@/scss/keyframes";
 
 //components
-@import "components/swiper";
+@import "@/scss/components/swiper";
