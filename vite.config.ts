@@ -15,8 +15,8 @@ export default defineConfig({
 	],
 	resolve: {
 		alias: {
-			"~": process.env.NODE_ENV === "production" ? path.join(__dirname, "..", "node_modules") : path.join(__dirname, "node_modules"),
-			"@": process.env.NODE_ENV === "production" ? __dirname : path.join(__dirname, "src")
+			"~": path.join(__dirname, "node_modules"),
+			"@": path.join(__dirname, "src")
 		}
 	},
 	css: {
