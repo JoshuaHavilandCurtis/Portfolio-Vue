@@ -1,10 +1,7 @@
 import vue from "@vitejs/plugin-vue";
-import dotenv from "dotenv";
-import path from "path";
+import { fileURLToPath } from "url";
 import { defineConfig } from "vite";
 import { compression } from "vite-plugin-compression2";
-
-dotenv.config();
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,8 +12,8 @@ export default defineConfig({
 	],
 	resolve: {
 		alias: {
-			"~": path.join(__dirname, "node_modules"),
-			"@": path.join(__dirname, "src")
+			"~": fileURLToPath(new URL("./node_modules", import.meta.url)),
+			"@": fileURLToPath(new URL("./src", import.meta.url))
 		}
 	},
 	css: {
