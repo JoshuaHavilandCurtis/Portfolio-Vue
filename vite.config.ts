@@ -6,8 +6,8 @@ export default defineConfig({
 	plugins: [vue()],
 	resolve: {
 		alias: {
-			"~": "./node_modules",
-			"@": "./src"
+			"~": "/node_modules",
+			"@": "/src"
 		}
 	},
 	css: {
