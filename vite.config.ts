@@ -8,7 +8,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"~": path.join(".", "/node_modules"),
-			"@": path.join(".", "./src")
+			"@": path.join(".", "/src")
 		}
 	},
 	css: {
