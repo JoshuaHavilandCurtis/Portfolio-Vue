@@ -1,8 +1,6 @@
 services:
   - type: web
     plan: free
-    region: frankfurt
-    numInstances: 1
     name: portfolio-app
     runtime: static
     branch: main
