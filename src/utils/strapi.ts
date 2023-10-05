@@ -9,7 +9,6 @@ import { delay } from "@/utils/common";
  * @returns Promise containing response data
  */
 export const getFromStrapi = async <T extends Strapi.Response>(endpoint: string) => {
-	console.log(config);
 	if (config.enableContentCaching) {
 		const cachedResponseData = getCachedStrapiResponseData<T>(endpoint);
 		if (cachedResponseData !== null)
