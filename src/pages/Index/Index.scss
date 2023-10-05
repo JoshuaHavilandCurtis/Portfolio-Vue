@@ -23,6 +23,10 @@
 	}
 
 	.btn--large {
-		margin-top: cgap(md);
+		margin-top: cgap(xl);
+
+		@include media-breakpoint-down(md) {
+			margin-top: cgap(lg);
+		}
 	}
 }
