@@ -1,5 +1,5 @@
-import config from "@/../config";
-import Strapi from "@/types/strapi.models";
+import config from "@/config";
+import Strapi from "@/types/api/strapi.models";
 import { delay } from "@/utils/common";
 
 /**
@@ -9,14 +9,12 @@ import { delay } from "@/utils/common";
  * @returns Promise containing response data
  */
 export const getFromStrapi = async <T extends Strapi.Response>(endpoint: string) => {
+	console.log(config);
 	if (config.enableContentCaching) {
 		const cachedResponseData = getCachedStrapiResponseData<T>(endpoint);
 		if (cachedResponseData !== null)
 			return cachedResponseData;
 	}
-
-	if (config.artificialDelay)
-		await delay(config.artificialDelayDuration);
 
 	const fetchData = async () => {
 		let data: T;
@@ -37,7 +35,7 @@ export const getFromStrapi = async <T extends Strapi.Response>(endpoint: string)
 			}
 
 		} catch (e) {
-			if (typeof e === "string" && e.includes("404")) //todo -> awful
+			if (e === "404") //todo -> hmm
 				throw new Error(`API request failed: ${e}`); //rethrow
 			else
 				console.error("API request failed. Trying again shortly...");

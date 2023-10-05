@@ -4,7 +4,10 @@
 		appear
 		name="content-loaded"
 	>
-		<Loader v-if="data === null" />
+		<Loader
+			v-if="data === null"
+			v-show="showLoader"
+		/>
 
 		<SplitContent
 			v-else
@@ -20,11 +23,11 @@
 							<h1>{{ data.title }}</h1>
 						</hgroup>
 
-						<p>{{ data.description }}</p>
+						<p>{{ data.content }}</p>
 					</div>
 
 					<div
-						v-if="data.info_blocks !== undefined && data.info_blocks.length > 0"
+						v-if="data.info_blocks.length > 0"
 						class="about__info-blocks"
 					>
 						<div
@@ -33,7 +36,7 @@
 							class="info-block"
 						>
 							<h4>{{ infoBlock.title }}</h4>
-							<div v-html="parse(infoBlock.description)" />
+							<div v-html="parse(infoBlock.content)" />
 						</div>
 					</div>
 				</div>
@@ -42,7 +45,7 @@
 			<template #second>
 				<StrapiImage
 					:image="data.image"
-					format="large"
+					format="medium"
 					lazy
 				/>
 			</template>
@@ -55,16 +58,22 @@ import Loader from "@/components/general/Loader/Loader.vue";
 import SplitContent from "@/components/sections/SplitContent/SplitContent.vue";
 import StrapiImage from "@/components/general/StrapiImage/StrapiImage.vue";
 import BackButton from "@/components/general/BackButton/BackButton.vue";
+import config from "@/config";
 import { AboutResponse, AboutData } from "@/types/api/pages/about.models";
 import { getFromStrapi } from "@/utils/strapi";
 import { ref } from "vue";
 import { parse } from "marked";
+import { delay } from "@/utils/common";
 
 const data = ref<AboutData | null>(null);
+const showLoader = ref(true);
 
 void (async () => {
 	const response = await getFromStrapi<AboutResponse>("about");
 	data.value = response.data.attributes;
+	if (config.artificialDelay)
+		await delay(config.artificialDelayDuration);
+	showLoader.value = false;
 })();
 </script>
 

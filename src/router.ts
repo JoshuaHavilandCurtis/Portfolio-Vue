@@ -4,7 +4,8 @@ import Contact from "@/pages/Contact/Contact.vue";
 import Index from "@/pages/Index/Index.vue";
 import Product from "@/pages/Work/Product/Product.vue";
 import Work from "@/pages/Work/Work.vue";
-import { RouteComponent, createRouter, createWebHistory } from "vue-router";
+import { Component } from "vue";
+import { createRouter, createWebHistory } from "vue-router";
 
 export default createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,34 +13,34 @@ export default createRouter({
 		{
 			name: "404",
 			path: "/:pathMatch(.*)*",
-			component: FourZeroFour as RouteComponent
+			component: FourZeroFour as Component
 		},
 		{
 			name: "Home",
 			path: "/",
-			component: Index as RouteComponent,
+			component: Index as Component,
 			children: [
 				{
 					name: "About",
 					path: "/about",
-					component: About as RouteComponent
+					component: About as Component
 				},
 				{
 					name: "My work",
 					path: "/my-work",
-					component: Work as RouteComponent,
+					component: Work as Component,
 					children: [
 						{
 							name: "Product",
 							path: ":productID",
-							component: Product as RouteComponent
+							component: Product as Component
 						}
 					]
 				},
 				{
 					name: "Contact",
 					path: "/contact",
-					component: Contact as RouteComponent
+					component: Contact as Component
 				}
 			]
 		}

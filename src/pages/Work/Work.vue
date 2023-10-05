@@ -4,10 +4,11 @@
 		appear
 		name="content-loaded"
 	>
-		<Loader v-if="data === null" />
+		<Loader v-if="showLoader" />
+	</Transition>
 
+	<template v-if="data !== null">
 		<SplitContent
-			v-else
 			second-slot-type="swiper"
 			class="work"
 		>
@@ -21,7 +22,7 @@
 						</h1>
 					</hgroup>
 
-					<div v-html="parse(data.description)" />
+					<div v-html="parse(data.content)" />
 				</div>
 			</template>
 
@@ -62,14 +63,15 @@
 				</Swiper>
 			</template>
 		</SplitContent>
-	</Transition>
 
-	<Panel
-		:open="panelOpen"
-		:close-action="closePanel"
-	>
-		<RouterView />
-	</Panel>
+
+		<Panel
+			:open="panelOpen"
+			:close-action="closePanel"
+		>
+			<RouterView />
+		</Panel>
+	</template>
 </template>
 
 <script setup lang="ts">
@@ -85,6 +87,8 @@ import { WorkResponse, WorkData } from "@/types/api/pages/work.models";
 import { strapiUrl } from "@/utils/strapi";
 import { SwiperContainer } from "swiper/element";
 import { parse } from "marked";
+import config from "@/config";
+import { delay } from "@/utils/common";
 
 const router = useRouter();
 const productSlider = computed(() => document.querySelector<SwiperContainer>(".products.swiper"));
@@ -158,10 +162,14 @@ const handleProductTouchEnd = (ev: TouchEvent, productID: number) => {
 };
 
 const data = ref<WorkData | null>(null);
+const showLoader = ref(true);
 
 void (async () => {
 	const response = await getFromStrapi<WorkResponse>("work");
 	data.value = response.data.attributes;
+	if (config.artificialDelay)
+		await delay(config.artificialDelayDuration);
+	showLoader.value = false;
 })();
 </script>
 

@@ -22,4 +22,4 @@ const props = defineProps<{
 const format = computed(() => props.image.data.attributes.formats[props.format]);
 </script>
 
-<style src="./StrapiImage.scss" scoped />
+<style src="./StrapiImage.scss" scoped />@/types/api/strapi.models
