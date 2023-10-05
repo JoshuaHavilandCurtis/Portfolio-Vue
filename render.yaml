@@ -6,7 +6,7 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     healthCheckPath: /_health
-    autoDeploy: false
+    autoDeploy: true
     envVars:
       - key: NODE_VERSION
         value: ~20.7.0
