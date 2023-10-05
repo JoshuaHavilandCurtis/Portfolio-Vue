@@ -4,53 +4,50 @@
 		appear
 		name="content-loaded"
 	>
-		<Loader
-			v-if="data === null"
-			v-show="showLoader"
-		/>
+		<Loader v-if="showLoader" />
+	</Transition>
 
-		<SplitContent
-			v-else
-			second-slot-type="image"
-			class="about"
-		>
-			<template #first>
-				<BackButton />
+	<SplitContent
+		v-if="data !== null"
+		second-slot-type="image"
+		class="about"
+	>
+		<template #first>
+			<BackButton />
 
-				<div class="about__content">
-					<div class="about__main-content">
-						<hgroup>
-							<h1>{{ data.title }}</h1>
-						</hgroup>
+			<div class="about__content">
+				<div class="about__main-content">
+					<hgroup>
+						<h1>{{ data.title }}</h1>
+					</hgroup>
 
-						<p>{{ data.content }}</p>
-					</div>
+					<p>{{ data.content }}</p>
+				</div>
 
+				<div
+					v-if="data.info_blocks.length > 0"
+					class="about__info-blocks"
+				>
 					<div
-						v-if="data.info_blocks.length > 0"
-						class="about__info-blocks"
+						v-for="infoBlock of data.info_blocks"
+						:key="infoBlock.id"
+						class="info-block"
 					>
-						<div
-							v-for="infoBlock of data.info_blocks"
-							:key="infoBlock.id"
-							class="info-block"
-						>
-							<h4>{{ infoBlock.title }}</h4>
-							<div v-html="parse(infoBlock.content)" />
-						</div>
+						<h4>{{ infoBlock.title }}</h4>
+						<div v-html="parse(infoBlock.content)" />
 					</div>
 				</div>
-			</template>
+			</div>
+		</template>
 
-			<template #second>
-				<StrapiImage
-					:image="data.image"
-					format="medium"
-					lazy
-				/>
-			</template>
-		</SplitContent>
-	</Transition>
+		<template #second>
+			<StrapiImage
+				:image="data.image"
+				format="medium"
+				lazy
+			/>
+		</template>
+	</SplitContent>
 </template>
 
 <script setup lang="ts">
