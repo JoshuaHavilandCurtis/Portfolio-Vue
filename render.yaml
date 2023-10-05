@@ -2,7 +2,7 @@ services:
   - type: web
     name: portfolio-app
     runtime: static
-    branch: main
+    branch: dev
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     healthCheckPath: /_health
