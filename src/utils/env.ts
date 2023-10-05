@@ -1,5 +1,8 @@
 export const castEnv = {
-	asBool(envVar: string) {
+	asBool(envVar: string | undefined) {
+		if (envVar === undefined)
+			return;
+
 		if (envVar === "true")
 			return true;
 		else if (envVar === "false")
@@ -7,10 +10,13 @@ export const castEnv = {
 		else
 			throw new Error(`Failed to cast environment variable value '${envVar}' as boolean`);
 	},
-	asString(envVar: string) {
+	asString(envVar: string | undefined) {
 		return envVar;
 	},
-	asNumber(envVar: string) {
+	asNumber(envVar: string | undefined) {
+		if (envVar === undefined)
+			return;
+
 		const num = parseFloat(envVar);
 		if (isNaN(+envVar) || isNaN(num))
 			throw new Error(`Failed to cast environment variable value '${envVar}' as number`);
