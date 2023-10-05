@@ -11,6 +11,8 @@ services:
     envVars:
       - key: NODE_VERSION
         value: ~20.7.0
+      - key: VITE_STRAPI_URL
+        value: https://portfolio-api-yi9v.onrender.com
     headers:
     - path: /*
       name: X-Frame-Options
